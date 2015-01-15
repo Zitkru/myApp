@@ -1,3 +1,4 @@
+var idUsuarioL="";
 $(document).ready(function (){
     supersonic.ui.tabs.hide();
 
@@ -8,9 +9,9 @@ function login(){
         data:$('#loginForm').serialize(),
         dataType: 'jsonp',
         success:function(e){
-            var idUsuarioL="";
+            
             idUsuarioL=e.logeado;
-            $("#idusuario").val(idUsuarioL);
+            
             
             if(e.logeado > 0){
                 //Cambia de view vía Appgyver

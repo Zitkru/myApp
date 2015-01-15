@@ -18,12 +18,7 @@
 
         
         <form id ="NuevoForm">
-            <div class="list">
-                <label class="item item-input item-floating-label">
-                <span class="input-label">Id Usuario</span>
-                <input type="text" name = "idUsuario" id="idusuario" value="">
-              </label>
-                
+            <div class="list">                
               <label class="item item-input item-floating-label">
                 <span class="input-label">Título</span>
                 <input type="text" name = "titulo" placeholder="Título">
@@ -54,7 +49,7 @@
                             data:{tablaT : 1},
                             dataType: 'jsonp',
                             success: function(e){
-                                
+                                $("#idusuario").val(idUsuarioL);
                                 $("#proyecto").html("");
                                 
                                 for (var i = 0; i< e.length; i++) {
