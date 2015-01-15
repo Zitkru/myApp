@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<super-navbar>
+    <super-navbar-title>
+      Tickets
+    </super-navbar-title>
+</super-navbar>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+    
+</head>
+
+<body>
+    
+    <!--Pantalla principal de tickets-->
+    <div id = "divTickets">
+        <div class="button-bar">
+            <a class="button icon-left ion-ios7-eye button-dark" onclick = "verTicket()">VER TICKETS</a>
+            <a class="button icon-right ion-plus-round button-dark" onclick = "verNuevoTicket()">NUEVO TICKET</a>
+        </div>
+        
+
+
+        <div class="button-bar" id = "subBotonesVerTickets" style="visibility:hidden">
+            <a class="button button-stable" onclick = "verTicketResuelto()">RESUELTOS</a>
+            <a class="button button-stable" onclick = "verTicketPendiente()">PENDIENTES</a>
+        </div>
+        
+        <div class="card" id="misTickets">
+         
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

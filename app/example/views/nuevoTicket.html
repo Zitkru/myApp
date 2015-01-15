@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<super-navbar>
+    <super-navbar-title>
+      Nuevo Ticket
+    </super-navbar-title>
+</super-navbar>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+    
+</head>
+<body>
+    
+    <!--Nuevo Ticket-->
+    <div id = "divNuevoT">
+
+        
+        <form id ="NuevoForm">
+            <div class="list">
+                <label class="item item-input item-floating-label">
+                <span class="input-label">Id Usuario</span>
+                <input type="text" name = "idUsuario" id="idusuario" value="">
+              </label>
+                
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Título</span>
+                <input type="text" name = "titulo" placeholder="Título">
+              </label>
+              <label class="item item-input item-floating-label">
+                <span class="input-label">Descripción</span>
+                <textarea name="descripcion" rows="8" cols="40" placeholder="Descripción"></textarea>
+              </label>
+               <label class="item item-input item-select">
+                <div class="input-label">
+                  Importancia
+                </div>
+                <select name="importancia">
+                    <option value="1">Alto</option>
+                    <option value="2" selected>Medio</option>
+                    <option value="3">Bajo</option>
+                </select>
+              </label>
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Proyecto
+                </div>
+                <select name="idProyecto" id= "proyecto">
+                    <script>
+                        
+                        $.ajax('http://soporte.technit.com.mx/Tickets/responses/seleccionProyecto.php',{
+                            type:'GET',
+                            data:{tablaT : 1},
+                            dataType: 'jsonp',
+                            success: function(e){
+                                
+                                $("#proyecto").html("");
+                                
+                                for (var i = 0; i< e.length; i++) {
+                                    var msg = $("<option value ="+ e[i].idProyecto +" >"+ e[i].nombre +"</tr>");                                
+                                    $("#proyecto").append(msg);
+                                };
+
+                            },
+                            error:function(e){
+                                alert(e);
+                            }
+
+                        }); 
+                    </script>
+                </select>
+              </label>
+             
+            </div>
+            <super-navigate onclick="crearTicket()">
+            <button class="button button-block button-positive"> CREAR </button>
+            </super-navigate>
+                
+        </form>
+    </div>
+    
+</body>
+</html>
